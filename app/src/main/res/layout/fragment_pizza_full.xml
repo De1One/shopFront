@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.shopfront.ui.pizzafull.PizzaFullVM"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="24dp">
+
+        <TextView
+            android:id="@+id/pizzaFull_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.nameObs}"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/pizzaFull_image"
+            tools:text="Name"/>
+
+        <ImageView
+            android:id="@+id/pizzaFull_image"
+            android:layout_width="300dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/pizzaFull_name"
+            android:scaleType="centerCrop"
+            app:picasso="@{viewModel.imageObs}" />
+
+        <TextView
+            android:id="@+id/pizzaFull_weight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Weight"
+            android:text="@{viewModel.weightObs}"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@id/pizzaFull_diameter"
+            app:layout_constraintTop_toBottomOf="@id/pizzaFull_image"
+            app:layout_constraintEnd_toStartOf="@id/pizzaFull_calories"
+            android:layout_marginTop="24dp"
+            />
+
+        <TextView
+            android:id="@+id/pizzaFull_calories"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="textEnd"
+            tools:text="Calories"
+            android:text="@{viewModel.caloriesObs}"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/pizzaFull_weight"
+            app:layout_constraintTop_toBottomOf="@id/pizzaFull_image"
+            android:layout_marginTop="24dp"/>
+
+        <TextView
+            android:id="@+id/pizzaFull_diameter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="textEnd"
+            tools:text="Diameter"
+            android:text="@{viewModel.diameterObs}"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/pizzaFull_weight"
+            app:layout_constraintTop_toBottomOf="@id/pizzaFull_image"
+            android:layout_marginTop="24dp"/>
+
+        <TextView
+            android:id="@+id/pizzaFull_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Price"
+            android:text="@{viewModel.priceObs}"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/cart_button"
+            app:layout_constraintEnd_toStartOf="@+id/cart_button"
+            />
+        <TextView
+            android:id="@+id/pizzaFull_composition"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Composition"
+            android:text="@{viewModel.compositionObs}"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/pizzaFull_weight"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/pizzaFull_price"
+            />
+        <Button
+            android:id="@+id/cart_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add to cart"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/pizzaFull_price"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
